@@ -5,18 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumit Kannake | Business Analytics & Operations</title>
     
-    <!-- Google Fonts: Playfair Display (Headings) & Inter (Body) -->
+    <!-- 1. YOUR BROWSER TAB FACE ICON (FAVICON) -->
+    <link rel="icon" type="image/jpeg" href="images/fanvic image.jpeg">
+    
+    <!-- Google Fonts: Playfair Display & Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Social Icons -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* CSS Variables for Colors and Typography */
         :root {
             --text-main: #1c1f24;
             --text-light: #525a66;
-            --accent: #d97706; /* Warm Amber */
+            --accent: #d97706;
             --card-bg: rgba(255, 255, 255, 0.85);
         }
 
@@ -31,10 +33,8 @@
             color: var(--text-main);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
-            /* Default background color */
-            background-color: #FAF8F5; 
-            /* Smoothly transition background colors on scroll */
-            transition: background-color 0.8s ease-in-out; 
+            background-color: #FAF8F5;
+            transition: background-color 0.8s ease-in-out;
             overflow-x: hidden;
         }
 
@@ -44,12 +44,11 @@
             line-height: 1.2;
         }
 
-        /* Interactive Mouse Glow Effect */
         #cursor-glow {
             position: fixed;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
             border-radius: 50%;
             pointer-events: none;
             transform: translate(-50%, -50%);
@@ -57,14 +56,12 @@
             transition: top 0.1s ease, left 0.1s ease;
         }
 
-        /* Container Layout */
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 30px;
         }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -73,6 +70,7 @@
             position: relative;
             z-index: 10;
         }
+
         .logo {
             font-family: 'Playfair Display', serif;
             font-size: 1.75rem;
@@ -81,6 +79,7 @@
             color: var(--text-main);
             letter-spacing: -0.5px;
         }
+
         .nav-links a {
             text-decoration: none;
             color: var(--text-main);
@@ -88,11 +87,11 @@
             font-weight: 500;
             transition: color 0.3s;
         }
+
         .nav-links a:hover {
             color: var(--accent);
         }
 
-        /* Hero Section (Side-by-Side with Profile Frame) */
         .hero {
             display: flex;
             align-items: center;
@@ -101,56 +100,53 @@
             min-height: 80vh;
             padding: 40px 0 100px 0;
         }
+
         .hero-text {
             flex: 1.2;
             z-index: 2;
         }
+
         .hero-text h1 {
-            font-size: 4.5rem;
+            font-size: 4.2rem;
             margin-bottom: 25px;
             font-weight: 700;
             letter-spacing: -1px;
         }
+
         .hero-text h1 i {
             color: var(--accent);
             font-weight: 500;
         }
+
         .hero-text p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-light);
             margin-bottom: 40px;
             max-width: 90%;
         }
 
-        /* The Creator Photo Frame */
         .hero-image {
             flex: 1;
             position: relative;
-        }
-        .photo-backdrop {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 100%;
-            height: 100%;
-            background-color: #E6E0D4;
-            border-radius: 30px 100px 30px 100px;
-            z-index: 0;
-            transition: transform 0.5s ease;
-        }
-        .hero-image:hover .photo-backdrop {
-            transform: translate(15px, 15px);
-        }
-        .hero-image img {
-            position: relative;
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            z-index: 1;
-            object-fit: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Floating Badges */
+        .hero-image img {
+            width: 100%;
+            max-width: 420px;
+            height: auto;
+            z-index: 1;
+            display: block;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.12));
+            transition: transform 0.4s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
         .badge {
             display: inline-block;
             background: white;
@@ -163,32 +159,34 @@
             margin-right: 15px;
             margin-bottom: 15px;
         }
+
         .badge i {
             color: var(--accent);
             margin-right: 8px;
         }
 
-        /* Sections */
         section {
             padding: 100px 0;
             position: relative;
             z-index: 2;
         }
+
         .section-header {
             text-align: center;
             margin-bottom: 60px;
         }
+
         .section-header h2 {
             font-size: 3rem;
             margin-bottom: 15px;
         }
 
-        /* Clean Glass Cards for Skills */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
         }
+
         .card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -198,50 +196,55 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.03);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
+
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: 0 25px 50px rgba(0,0,0,0.08);
-            border-color: rgba(217, 119, 6, 0.2);
+            border-color: rgba(217, 119, 6, 0.25);
         }
+
         .card i {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--accent);
             margin-bottom: 25px;
         }
+
         .card h3 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
         }
 
-        /* Footer */
         footer {
             padding: 80px 0 40px 0;
             text-align: center;
             border-top: 1px solid rgba(0,0,0,0.05);
         }
+
         .social-links {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             margin-bottom: 30px;
         }
+
         .social-links a {
             color: var(--text-main);
             font-size: 1.8rem;
             transition: all 0.3s ease;
             display: inline-block;
         }
+
         .social-links a:hover {
             color: var(--accent);
-            transform: translateY(-5px) scale(1.1);
+            transform: translateY(-5px) scale(1.15);
         }
+
         .footer-text {
             color: var(--text-light);
             font-size: 0.95rem;
         }
 
-        /* Mobile Responsiveness */
         @media (max-width: 900px) {
             .hero {
                 flex-direction: column;
@@ -249,27 +252,26 @@
                 padding: 40px 0;
             }
             .hero-text h1 {
-                font-size: 3.5rem;
+                font-size: 3.2rem;
             }
             .hero-text p {
                 margin: 0 auto 30px auto;
             }
             .hero-image {
-                width: 80%;
+                width: 85%;
                 margin: 0 auto;
             }
             .nav-links {
-                display: none; /* Keep mobile clean */
+                display: none;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Soft glowing cursor effect -->
     <div id="cursor-glow"></div>
 
-    <!-- Data-color determines the background color transition on scroll -->
+    <!-- Section 1: Warm Off-White -->
     <div data-color="#FAF8F5" class="color-section">
         <div class="container">
             <nav>
@@ -283,61 +285,59 @@
 
             <section class="hero">
                 <div class="hero-text">
-                    <!-- Floating tags like a creator portfolio -->
                     <div style="margin-bottom: 20px;">
-                        <span class="badge"><i class="fa-solid fa-chart-pie"></i> Business Analyst</span>
+                        <span class="badge"><i class="fa-solid fa-chart-pie"></i> Business Analytics</span>
                         <span class="badge"><i class="fa-solid fa-gears"></i> Operations</span>
                     </div>
                     
                     <h1>Optimizing <i>operations</i> through data.</h1>
-                    <p>I am a postgraduate student joining the Pg-I GE-FY program at AISSMS for the 2026-2027 academic year. I bridge the gap between complex raw data and actionable, real-world business strategy.</p>
+                    <p>I am an incoming postgraduate student in the Pg-I GE-FY program at AISSMS for the 2026-2027 academic year. I specialize in turning raw operational data into structured business intelligence and automated workflows.</p>
                 </div>
                 
                 <div class="hero-image">
-                    <div class="photo-backdrop"></div>
-                    <!-- Ensure pic01.jpg is in your GitHub images folder -->
-                    <img src="images/pic01.jpg" alt="Sumit Kannake">
+                    <!-- 2. YOUR HERO POSTER IMAGE -->
+                    <img src="{YOUR_HERO_IMAGE_PATH}" alt="Sumit Kannake">
                 </div>
             </section>
         </div>
     </div>
 
-    <!-- Scroll section 2: Changes background to Soft Sage Green -->
+    <!-- Section 2: Soft Sage Green Transition -->
     <div data-color="#F2F7F4" class="color-section" id="about">
         <div class="container">
             <section>
                 <div class="section-header">
                     <h2>Core Capabilities</h2>
-                    <p style="color: var(--text-light); font-size: 1.1rem;">The frameworks and tools I use to solve business bottlenecks.</p>
+                    <p style="color: var(--text-light); font-size: 1.1rem;">Frameworks and technologies I use to drive business clarity.</p>
                 </div>
                 
                 <div class="grid" id="skills">
                     <div class="card">
                         <i class="fa-solid fa-chart-line"></i>
                         <h3>Business Analytics</h3>
-                        <p>Building data-driven decision models, tracking KPIs, and finding operational efficiencies to drive retail and enterprise growth.</p>
+                        <p>Data modeling, KPI benchmarking, and performance forecasting to support executive decision-making.</p>
                     </div>
                     <div class="card">
                         <i class="fa-solid fa-database"></i>
                         <h3>Data Strategy (SQL)</h3>
-                        <p>Extracting, cleaning, and managing complex datasets from relational databases using advanced query aggregations.</p>
+                        <p>Relational database queries, data hygiene, schema optimization, and analytical dataset aggregation.</p>
                     </div>
                     <div class="card">
                         <i class="fa-solid fa-desktop"></i>
                         <h3>Data Visualization</h3>
-                        <p>Designing interactive, highly readable dashboards in Power BI to make complex operational data universally understood.</p>
+                        <p>Designing interactive, high-impact Power BI reports that turn complex numbers into clear visual insights.</p>
                     </div>
                     <div class="card">
                         <i class="fa-solid fa-bolt"></i>
                         <h3>Process Automation</h3>
-                        <p>Streamlining daily workflows and POS systems using modern automation tools (Zapier, Make) and operations research.</p>
+                        <p>Connecting business tools and streamlining operations workflows using modern automation pipelines.</p>
                     </div>
                 </div>
             </section>
         </div>
     </div>
 
-    <!-- Scroll section 3: Changes background to Soft Lavender -->
+    <!-- Section 3: Soft Lavender Transition -->
     <div data-color="#F5F3FF" class="color-section" id="contact">
         <div class="container">
             <footer>
@@ -345,46 +345,39 @@
                 <ul class="social-links">
                     <li><a href="https://github.com/CodewithSoCia" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a></li>
                     <li><a href="https://www.linkedin.com/in/sumit-kannake" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href="https://x.com/sumit_kannake" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="https://x.com/sumit_kannake" target="_blank" title="X"><i class="fa-brands fa-x-twitter"></i></a></li>
                     <li><a href="https://www.instagram.com/_consciousbillionaire/?hl=en" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
                     <li><a href="mailto:sumitkannake09@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a></li>
                 </ul>
-                <p class="footer-text">&copy; 2026 Sumit Kannake. Business Analytics & Operations.<br>Designed for clarity and purpose.</p>
+                <p class="footer-text">&copy; 2026 Sumit Kannake. Business Analytics & Operations.<br>Built with purpose.</p>
             </footer>
         </div>
     </div>
 
-    <!-- Interactive JavaScript -->
+    <!-- Interactive Scripts -->
     <script>
-        // 1. Mouse Tracking Glow Effect
         const glow = document.getElementById('cursor-glow');
         window.addEventListener('mousemove', (e) => {
-            // Smoothly move the glow element to follow the mouse
             glow.style.left = e.clientX + 'px';
             glow.style.top = e.clientY + 'px';
         });
 
-        // 2. Scroll Color Shifting Effect (Ali Abdaal Style)
-        // Detects which section is currently on screen and changes the body color
         const sections = document.querySelectorAll('.color-section');
-        
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.4 // Triggers when 40% of the section is visible
+            threshold: 0.35
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Pull the hex color from the data-color attribute in the HTML
                     const newColor = entry.target.getAttribute('data-color');
                     document.body.style.backgroundColor = newColor;
                 }
             });
         }, observerOptions);
 
-        // Tell the observer to watch all color sections
         sections.forEach(section => {
             observer.observe(section);
         });
