@@ -1,7 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Highlights enhanced with Modern UI/UX Interactivity
--->
 <html>
 	<head>
 		<title>Sumit Kannake | Digital Resume</title>
@@ -9,20 +6,40 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		
-		<!-- Modern Interactive CSS Embedded -->
+		<!-- Motion Graphics & Modern UI CSS -->
 		<style>
-			/* Glassmorphism & Modern Styling */
+			/* Disable the old static background image */
+			body, html {
+				background-image: none !important;
+				background-color: #0b1120 !important; /* Modern dark slate */
+			}
+			body:after, body:before {
+				display: none !important;
+			}
+
+			/* Interactive Background Container */
+			#particles-js {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				z-index: -1; /* Keeps it behind your content */
+				background-color: #0b1120;
+			}
+
+			/* Glassmorphism for the Content Boxes */
 			.main.special {
-				background: rgba(255, 255, 255, 0.85) !important;
-				backdrop-filter: blur(12px);
+				background: rgba(255, 255, 255, 0.88) !important;
+				backdrop-filter: blur(15px);
 				border-radius: 20px;
-				box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+				box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 				margin-bottom: 40px;
-				border: 1px solid rgba(255, 255, 255, 0.4);
+				border: 1px solid rgba(255, 255, 255, 0.5);
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
 			}
 			
-			/* Hover Effects for Icons & Cards */
+			/* Hover Effects */
 			.icons-grid li {
 				transition: all 0.3s ease-in-out;
 				border-radius: 15px;
@@ -30,24 +47,19 @@
 			}
 			.icons-grid li:hover {
 				transform: translateY(-10px) scale(1.03);
-				background: rgba(0, 0, 0, 0.03);
+				background: rgba(0, 0, 0, 0.04);
 				box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-			}
-
-			/* Hover Effects for Buttons & Socials */
-			.button.primary, .icons li a {
-				transition: all 0.3s ease !important;
 			}
 			.button.primary:hover {
 				transform: translateY(-3px);
-				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 			}
 			.icons li a:hover {
 				transform: translateY(-5px) scale(1.2);
-				color: #4CAF50 !important; /* Modern green hover */
+				color: #4CAF50 !important;
 			}
 
-			/* Scroll Reveal Animation Classes */
+			/* Scroll Reveal */
 			.reveal {
 				opacity: 0;
 				transform: translateY(40px);
@@ -69,9 +81,16 @@
 				0%, 100% { opacity: 1; }
 				50% { opacity: 0; }
 			}
+            /* Make header text pop against dark background */
+            #header h1, #header p {
+                text-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+            }
 		</style>
 	</head>
 	<body class="is-preload">
+
+		<!-- Interactive Motion Background -->
+		<div id="particles-js"></div>
 
 		<!-- Header -->
 			<section id="header">
@@ -159,7 +178,6 @@
 					<p>Open for business analytics collaborations, operational consulting, and networking.</p>
 				</div>
 				<footer>
-					<!-- EXACT SOCIAL LINKS -->
 					<ul class="icons">
 						<li><a href="https://github.com/CodewithSoCia" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 						<li><a href="https://www.linkedin.com/in/sumit-kannake" target="_blank" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
@@ -181,9 +199,52 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			<!-- Load Particles.js Library -->
+			<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
 			<!-- Custom Interactive Scripts -->
 			<script>
-				// 1. Typing Effect for the Header
+				// 1. Interactive Motion Graphics (Particles)
+				particlesJS("particles-js", {
+					"particles": {
+						"number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
+						"color": { "value": "#4CAF50" }, // Modern green nodes
+						"shape": { "type": "circle" },
+						"opacity": { "value": 0.5, "random": false },
+						"size": { "value": 3, "random": true },
+						"line_linked": {
+							"enable": true,
+							"distance": 150,
+							"color": "#ffffff",
+							"opacity": 0.2,
+							"width": 1
+						},
+						"move": {
+							"enable": true,
+							"speed": 2,
+							"direction": "none",
+							"random": false,
+							"straight": false,
+							"out_mode": "out",
+							"bounce": false,
+						}
+					},
+					"interactivity": {
+						"detect_on": "canvas",
+						"events": {
+							"onhover": { "enable": true, "mode": "grab" }, // Connects to mouse!
+							"onclick": { "enable": true, "mode": "push" }, // Adds more on click!
+							"resize": true
+						},
+						"modes": {
+							"grab": { "distance": 180, "line_linked": { "opacity": 0.8 } },
+							"push": { "particles_nb": 4 }
+						}
+					},
+					"retina_detect": true
+				});
+
+				// 2. Typing Effect
 				const text = "Postgraduate Management Student | Business Analytics & Operations";
 				let index = 0;
 				const speed = 50; 
@@ -195,10 +256,9 @@
 						setTimeout(typeWriter, speed);
 					}
 				}
-				// Start typing after a short delay
 				setTimeout(typeWriter, 500);
 
-				// 2. Scroll Reveal Animation
+				// 3. Scroll Reveal
 				function reveal() {
 					var reveals = document.querySelectorAll(".reveal");
 					for (var i = 0; i < reveals.length; i++) {
@@ -211,8 +271,7 @@
 					}
 				}
 				window.addEventListener("scroll", reveal);
-				reveal(); // Trigger once on load
+				reveal(); 
 			</script>
-
 	</body>
 </html>
