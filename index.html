@@ -1,277 +1,393 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Sumit Kannake | Digital Resume</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		
-		<!-- Motion Graphics & Modern UI CSS -->
-		<style>
-			/* Disable the old static background image */
-			body, html {
-				background-image: none !important;
-				background-color: #0b1120 !important; /* Modern dark slate */
-			}
-			body:after, body:before {
-				display: none !important;
-			}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumit Kannake | Business Analytics & Operations</title>
+    
+    <!-- Google Fonts: Playfair Display (Headings) & Inter (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-			/* Interactive Background Container */
-			#particles-js {
-				position: fixed;
-				width: 100%;
-				height: 100%;
-				top: 0;
-				left: 0;
-				z-index: -1; /* Keeps it behind your content */
-				background-color: #0b1120;
-			}
+    <style>
+        /* CSS Variables for Colors and Typography */
+        :root {
+            --text-main: #1c1f24;
+            --text-light: #525a66;
+            --accent: #d97706; /* Warm Amber */
+            --card-bg: rgba(255, 255, 255, 0.85);
+        }
 
-			/* Glassmorphism for the Content Boxes */
-			.main.special {
-				background: rgba(255, 255, 255, 0.88) !important;
-				backdrop-filter: blur(15px);
-				border-radius: 20px;
-				box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-				margin-bottom: 40px;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				transition: transform 0.3s ease, box-shadow 0.3s ease;
-			}
-			
-			/* Hover Effects */
-			.icons-grid li {
-				transition: all 0.3s ease-in-out;
-				border-radius: 15px;
-				padding: 20px 10px;
-			}
-			.icons-grid li:hover {
-				transform: translateY(-10px) scale(1.03);
-				background: rgba(0, 0, 0, 0.04);
-				box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-			}
-			.button.primary:hover {
-				transform: translateY(-3px);
-				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-			}
-			.icons li a:hover {
-				transform: translateY(-5px) scale(1.2);
-				color: #4CAF50 !important;
-			}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-			/* Scroll Reveal */
-			.reveal {
-				opacity: 0;
-				transform: translateY(40px);
-				transition: all 0.8s ease-out;
-			}
-			.reveal.active {
-				opacity: 1;
-				transform: translateY(0);
-			}
-			
-			/* Typing Cursor */
-			.cursor {
-				display: inline-block;
-				width: 3px;
-				background-color: white;
-				animation: blink 1s infinite;
-			}
-			@keyframes blink {
-				0%, 100% { opacity: 1; }
-				50% { opacity: 0; }
-			}
-            /* Make header text pop against dark background */
-            #header h1, #header p {
-                text-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            /* Default background color */
+            background-color: #FAF8F5; 
+            /* Smoothly transition background colors on scroll */
+            transition: background-color 0.8s ease-in-out; 
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        /* Interactive Mouse Glow Effect */
+        #cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: top 0.1s ease, left 0.1s ease;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0;
+            position: relative;
+            z-index: 10;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section (Side-by-Side with Profile Frame) */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            min-height: 80vh;
+            padding: 40px 0 100px 0;
+        }
+        .hero-text {
+            flex: 1.2;
+            z-index: 2;
+        }
+        .hero-text h1 {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+        .hero-text h1 i {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        /* The Creator Photo Frame */
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+        .photo-backdrop {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            background-color: #E6E0D4;
+            border-radius: 30px 100px 30px 100px;
+            z-index: 0;
+            transition: transform 0.5s ease;
+        }
+        .hero-image:hover .photo-backdrop {
+            transform: translate(15px, 15px);
+        }
+        .hero-image img {
+            position: relative;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            z-index: 1;
+            object-fit: cover;
+        }
+
+        /* Floating Badges */
+        .badge {
+            display: inline-block;
+            background: white;
+            color: var(--text-main);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+        .badge i {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        /* Clean Glass Cards for Skills */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            padding: 50px 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+            border-color: rgba(217, 119, 6, 0.2);
+        }
+        .card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .social-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .social-links a {
+            color: var(--text-main);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-5px) scale(1.1);
+        }
+        .footer-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 0;
             }
-		</style>
-	</head>
-	<body class="is-preload">
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+            .hero-text p {
+                margin: 0 auto 30px auto;
+            }
+            .hero-image {
+                width: 80%;
+                margin: 0 auto;
+            }
+            .nav-links {
+                display: none; /* Keep mobile clean */
+            }
+        }
+    </style>
+</head>
+<body>
 
-		<!-- Interactive Motion Background -->
-		<div id="particles-js"></div>
+    <!-- Soft glowing cursor effect -->
+    <div id="cursor-glow"></div>
 
-		<!-- Header -->
-			<section id="header">
-				<header class="major">
-					<h1>Sumit Kannake</h1>
-					<p><span id="typewriter"></span><span class="cursor">&nbsp;</span></p>
-				</header>
-				<div class="container">
-					<ul class="actions special">
-						<li><a href="#one" class="button primary scrolly">Explore Profile</a></li>
-					</ul>
-				</div>
-			</section>
+    <!-- Data-color determines the background color transition on scroll -->
+    <div data-color="#FAF8F5" class="color-section">
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Sumit Kannake.</a>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Capabilities</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
 
-		<!-- One: About -->
-			<section id="one" class="main special reveal">
-				<div class="container">
-					<span class="image fit primary"><img src="images/pic01.jpg" alt="Sumit Kannake" /></span>
-					<div class="content">
-						<header class="major">
-							<h2>Who I Am</h2>
-						</header>
-						<p>I am an incoming postgraduate student joining the Pg-I GE-FY program at AISSMS for the 2026-2027 academic year, specializing in Business Analytics. My focus lies at the intersection of data analysis, operational efficiency, and modern business workflow automation. I build structured dashboards, streamline retail workflows, and analyze core business data to solve real-world problems.</p>
-					</div>
-					<a href="#two" class="goto-next scrolly">Next</a>
-				</div>
-			</section>
+            <section class="hero">
+                <div class="hero-text">
+                    <!-- Floating tags like a creator portfolio -->
+                    <div style="margin-bottom: 20px;">
+                        <span class="badge"><i class="fa-solid fa-chart-pie"></i> Business Analyst</span>
+                        <span class="badge"><i class="fa-solid fa-gears"></i> Operations</span>
+                    </div>
+                    
+                    <h1>Optimizing <i>operations</i> through data.</h1>
+                    <p>I am a postgraduate student joining the Pg-I GE-FY program at AISSMS for the 2026-2027 academic year. I bridge the gap between complex raw data and actionable, real-world business strategy.</p>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="photo-backdrop"></div>
+                    <!-- Ensure pic01.jpg is in your GitHub images folder -->
+                    <img src="images/pic01.jpg" alt="Sumit Kannake">
+                </div>
+            </section>
+        </div>
+    </div>
 
-		<!-- Two: Core Competencies -->
-			<section id="two" class="main special reveal">
-				<div class="container">
-					<span class="image fit primary"><img src="images/pic02.jpg" alt="Core Competencies" /></span>
-					<div class="content">
-						<header class="major">
-							<h2>Core Skills</h2>
-						</header>
-						<p>Equipped with analytical frameworks, data modeling skills, and workflow automation capabilities:</p>
-						<ul class="icons-grid">
-							<li>
-								<span class="icon solid major fa-chart-bar"></span>
-								<h3>Business Analytics</h3>
-								<p>Data-driven decision modeling, KPI tracking, and operational efficiency.</p>
-							</li>
-							<li>
-								<span class="icon solid major fa-database"></span>
-								<h3>Data Querying (SQL)</h3>
-								<p>Extracting, cleaning, and managing data from relational databases.</p>
-							</li>
-							<li>
-								<span class="icon solid major fa-desktop"></span>
-								<h3>Data Visualization</h3>
-								<p>Designing interactive dashboards in Power BI to make data understandable.</p>
-							</li>
-							<li>
-								<span class="icon solid major fa-cogs"></span>
-								<h3>Process Automation</h3>
-								<p>Streamlining daily workflows and POS systems using modern automation.</p>
-							</li>
-						</ul>
-					</div>
-					<a href="#three" class="goto-next scrolly">Next</a>
-				</div>
-			</section>
+    <!-- Scroll section 2: Changes background to Soft Sage Green -->
+    <div data-color="#F2F7F4" class="color-section" id="about">
+        <div class="container">
+            <section>
+                <div class="section-header">
+                    <h2>Core Capabilities</h2>
+                    <p style="color: var(--text-light); font-size: 1.1rem;">The frameworks and tools I use to solve business bottlenecks.</p>
+                </div>
+                
+                <div class="grid" id="skills">
+                    <div class="card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>Business Analytics</h3>
+                        <p>Building data-driven decision models, tracking KPIs, and finding operational efficiencies to drive retail and enterprise growth.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-database"></i>
+                        <h3>Data Strategy (SQL)</h3>
+                        <p>Extracting, cleaning, and managing complex datasets from relational databases using advanced query aggregations.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-desktop"></i>
+                        <h3>Data Visualization</h3>
+                        <p>Designing interactive, highly readable dashboards in Power BI to make complex operational data universally understood.</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-bolt"></i>
+                        <h3>Process Automation</h3>
+                        <p>Streamlining daily workflows and POS systems using modern automation tools (Zapier, Make) and operations research.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 
-		<!-- Three: Vision -->
-			<section id="three" class="main special reveal">
-				<div class="container">
-					<span class="image fit primary"><img src="images/pic03.jpg" alt="Focus Areas" /></span>
-					<div class="content">
-						<header class="major">
-							<h2>Vision & Focus Areas</h2>
-						</header>
-						<p>Focused on leveraging technology, operations research, and enterprise systems to optimize supply chains and build scalable digital solutions for the future of business.</p>
-					</div>
-					<a href="#footer" class="goto-next scrolly">Next</a>
-				</div>
-			</section>
+    <!-- Scroll section 3: Changes background to Soft Lavender -->
+    <div data-color="#F5F3FF" class="color-section" id="contact">
+        <div class="container">
+            <footer>
+                <h2 style="margin-bottom: 20px;">Let's Connect</h2>
+                <ul class="social-links">
+                    <li><a href="https://github.com/CodewithSoCia" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/sumit-kannake" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    <li><a href="https://x.com/sumit_kannake" target="_blank" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="https://www.instagram.com/_consciousbillionaire/?hl=en" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="mailto:sumitkannake09@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a></li>
+                </ul>
+                <p class="footer-text">&copy; 2026 Sumit Kannake. Business Analytics & Operations.<br>Designed for clarity and purpose.</p>
+            </footer>
+        </div>
+    </div>
 
-		<!-- Footer -->
-			<section id="footer" class="reveal">
-				<div class="container">
-					<header class="major">
-						<h2>Get in Touch</h2>
-					</header>
-					<p>Open for business analytics collaborations, operational consulting, and networking.</p>
-				</div>
-				<footer>
-					<ul class="icons">
-						<li><a href="https://github.com/CodewithSoCia" target="_blank" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="https://www.linkedin.com/in/sumit-kannake" target="_blank" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="https://x.com/sumit_kannake" target="_blank" class="icon brands alt fa-twitter"><span class="label">X</span></a></li>
-						<li><a href="https://www.instagram.com/_consciousbillionaire/?hl=en" target="_blank" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="mailto:sumitkannake09@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; Sumit Kannake</li><li>Design: HTML5 UP & AI Enhanced</li>
-					</ul>
-				</footer>
-			</section>
+    <!-- Interactive JavaScript -->
+    <script>
+        // 1. Mouse Tracking Glow Effect
+        const glow = document.getElementById('cursor-glow');
+        window.addEventListener('mousemove', (e) => {
+            // Smoothly move the glow element to follow the mouse
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        // 2. Scroll Color Shifting Effect (Ali Abdaal Style)
+        // Detects which section is currently on screen and changes the body color
+        const sections = document.querySelectorAll('.color-section');
+        
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.4 // Triggers when 40% of the section is visible
+        };
 
-			<!-- Load Particles.js Library -->
-			<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Pull the hex color from the data-color attribute in the HTML
+                    const newColor = entry.target.getAttribute('data-color');
+                    document.body.style.backgroundColor = newColor;
+                }
+            });
+        }, observerOptions);
 
-			<!-- Custom Interactive Scripts -->
-			<script>
-				// 1. Interactive Motion Graphics (Particles)
-				particlesJS("particles-js", {
-					"particles": {
-						"number": { "value": 70, "density": { "enable": true, "value_area": 800 } },
-						"color": { "value": "#4CAF50" }, // Modern green nodes
-						"shape": { "type": "circle" },
-						"opacity": { "value": 0.5, "random": false },
-						"size": { "value": 3, "random": true },
-						"line_linked": {
-							"enable": true,
-							"distance": 150,
-							"color": "#ffffff",
-							"opacity": 0.2,
-							"width": 1
-						},
-						"move": {
-							"enable": true,
-							"speed": 2,
-							"direction": "none",
-							"random": false,
-							"straight": false,
-							"out_mode": "out",
-							"bounce": false,
-						}
-					},
-					"interactivity": {
-						"detect_on": "canvas",
-						"events": {
-							"onhover": { "enable": true, "mode": "grab" }, // Connects to mouse!
-							"onclick": { "enable": true, "mode": "push" }, // Adds more on click!
-							"resize": true
-						},
-						"modes": {
-							"grab": { "distance": 180, "line_linked": { "opacity": 0.8 } },
-							"push": { "particles_nb": 4 }
-						}
-					},
-					"retina_detect": true
-				});
-
-				// 2. Typing Effect
-				const text = "Postgraduate Management Student | Business Analytics & Operations";
-				let index = 0;
-				const speed = 50; 
-				
-				function typeWriter() {
-					if (index < text.length) {
-						document.getElementById("typewriter").innerHTML += text.charAt(index);
-						index++;
-						setTimeout(typeWriter, speed);
-					}
-				}
-				setTimeout(typeWriter, 500);
-
-				// 3. Scroll Reveal
-				function reveal() {
-					var reveals = document.querySelectorAll(".reveal");
-					for (var i = 0; i < reveals.length; i++) {
-						var windowHeight = window.innerHeight;
-						var elementTop = reveals[i].getBoundingClientRect().top;
-						var elementVisible = 100;
-						if (elementTop < windowHeight - elementVisible) {
-							reveals[i].classList.add("active");
-						}
-					}
-				}
-				window.addEventListener("scroll", reveal);
-				reveal(); 
-			</script>
-	</body>
+        // Tell the observer to watch all color sections
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
 </html>
