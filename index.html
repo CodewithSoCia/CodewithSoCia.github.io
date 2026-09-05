@@ -3,384 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sumit Kannake | Business Analytics & Operations</title>
+    <title>Sumit Kannake | Business Analytics & Process Automation</title>
     
-    <!-- 1. YOUR BROWSER TAB FACE ICON (FAVICON) -->
-<link rel="icon" type="image/png" href="BG.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Google Fonts: Playfair Display & Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        :root {
-            --text-main: #1c1f24;
-            --text-light: #525a66;
-            --accent: #d97706;
-            --card-bg: rgba(255, 255, 255, 0.85);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-main);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            background-color: #FAF8F5;
-            transition: background-color 0.8s ease-in-out;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--text-main);
-            line-height: 1.2;
-        }
-
-        #cursor-glow {
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 9999;
-            transition: top 0.1s ease, left 0.1s ease;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 40px 0;
-            position: relative;
-            z-index: 10;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.75rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--text-main);
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            margin-left: 30px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 60px;
-            min-height: 80vh;
-            padding: 40px 0 100px 0;
-        }
-
-        .hero-text {
-            flex: 1.2;
-            z-index: 2;
-        }
-
-        .hero-text h1 {
-            font-size: 4.2rem;
-            margin-bottom: 25px;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .hero-text h1 i {
-            color: var(--accent);
-            font-weight: 500;
-        }
-
-        .hero-text p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            max-width: 90%;
-        }
-
-        .hero-image {
-            flex: 1;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-image img {
-            width: 100%;
-            max-width: 420px;
-            height: auto;
-            z-index: 1;
-            display: block;
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.12));
-            transition: transform 0.4s ease;
-        }
-
-        .hero-image img:hover {
-            transform: scale(1.02);
-        }
-
-        .badge {
-            display: inline-block;
-            background: white;
-            color: var(--text-main);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            margin-right: 15px;
-            margin-bottom: 15px;
-        }
-
-        .badge i {
-            color: var(--accent);
-            margin-right: 8px;
-        }
-
-        section {
-            padding: 100px 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            padding: 50px 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.08);
-            border-color: rgba(217, 119, 6, 0.25);
-        }
-
-        .card i {
-            font-size: 2.2rem;
-            color: var(--accent);
-            margin-bottom: 25px;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        footer {
-            padding: 80px 0 40px 0;
-            text-align: center;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .social-links {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .social-links a {
-            color: var(--text-main);
-            font-size: 1.8rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .social-links a:hover {
-            color: var(--accent);
-            transform: translateY(-5px) scale(1.15);
-        }
-
-        .footer-text {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 900px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 40px 0;
-            }
-            .hero-text h1 {
-                font-size: 3.2rem;
-            }
-            .hero-text p {
-                margin: 0 auto 30px auto;
-            }
-            .hero-image {
-                width: 85%;
-                margin: 0 auto;
-            }
-            .nav-links {
-                display: none;
-            }
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body>
+<body class="bg-[#F8F9FA] text-[#1F2937] antialiased">
 
-    <div id="cursor-glow"></div>
+    <!-- NAVIGATION -->
+    <nav class="bg-[#fefefe]/80 backdrop-blur-sm fixed w-full top-0 z-50 border-b border-[#E5E7EB]">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-bold text-[#111827]">SK</span>
+                <span class="text-lg font-medium text-[#4B5563] hidden sm:block">SUMIT KANNAKE</span>
+            </div>
+            <div class="flex items-center gap-6 text-sm font-medium text-[#6B7280]">
+                <a href="#services" class="hover:text-[#111827]">Services</a>
+                <a href="#contact" class="px-5 py-2.5 rounded-full border border-[#D1D5DB] text-[#1F2937] hover:border-[#9CA3AF]">
+                    Client Gateway
+                </a>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Section 1: Warm Off-White -->
-    <div data-color="#FAF8F5" class="color-section">
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">Sumit Kannake.</a>
-                <div class="nav-links">
-                    <a href="#about">About</a>
-                    <a href="#skills">Capabilities</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </nav>
-
-            <section class="hero">
-                <div class="hero-text">
-                    <div style="margin-bottom: 20px;">
-                        <span class="badge"><i class="fa-solid fa-chart-pie"></i> Business Analytics</span>
-                        <span class="badge"><i class="fa-solid fa-gears"></i> Operations</span>
+    <main class="pt-24 lg:pt-32 pb-16">
+        
+        <!-- HERO SECTION (Updated Info) -->
+        <section class="max-w-7xl mx-auto px-6 py-12 lg:py-20">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                <div class="lg:col-span-7">
+                    <p class="text-base font-medium text-[#6B7280] mb-3">Hello, I’m</p>
+                    <h1 class="text-5xl md:text-7xl font-extrabold text-[#111827] leading-tight mb-4">
+                        SUMIT <span class="text-[#2563EB]">KANNAKE</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl font-semibold text-[#4B5563] mb-8">
+                        MBA CANDIDATE & AUTOMATION SPECIALIST
+                    </p>
+                    <p class="text-lg text-[#6B7280] max-w-2xl mb-12 leading-relaxed">
+                        I help businesses scale by transforming manual tasks into intelligent, automated workflows. By combining my background in Business Analytics with hands-on technical execution, I build data-driven systems that fuel real growth.
+                    </p>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-6 mb-16">
+                        <a href="#contact" class="px-8 py-4 rounded-full bg-[#2563EB] text-white font-semibold text-lg hover:bg-[#1E40AF] transition duration-150 flex items-center justify-center gap-2">
+                            Start a Project →
+                        </a>
                     </div>
-                    
-                    <h1>Optimizing <i>operations</i> through data.</h1>
-                    <p>I am an incoming postgraduate student in the Pg-I GE-FY program at AISSMS for the 2026-2027 academic year. I specialize in turning raw operational data into structured business intelligence and automated workflows.</p>
                 </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="bg-white rounded-3xl p-4 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-[#E5E7EB]">
+                        <!-- Replace with your actual photo URL later -->
+                        <img src="https://via.placeholder.com/800x1000?text=Sumit+Kannake+Photo" alt="Sumit Kannake" class="rounded-2xl w-full h-auto object-cover">
+                    </div>
+                    <div class="absolute -bottom-8 -left-12 bg-[#D1FAE5]/90 backdrop-blur-sm p-5 rounded-2xl border border-[#34D399]/30 text-center shadow-lg hidden md:block">
+                        <p class="text-sm font-medium text-[#064E3B]">CREDIBILITY AT</p>
+                        <p class="text-xl font-bold text-[#065F46]">AISSMS</p>
+                        <p class="text-xs text-[#064E3B]">(Pg-I GE-FY)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES BENTO GRID -->
+        <section id="services" class="max-w-7xl mx-auto px-6 py-20">
+            <h2 class="text-3xl font-bold text-[#111827] mb-10">Technical Capabilities</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-[#E5E7EB] shadow-sm hover:shadow-md transition">
+                    <div class="h-12 w-12 bg-[#EFF6FF] text-[#2563EB] rounded-xl flex items-center justify-center mb-6 text-2xl font-bold">⚙️</div>
+                    <h3 class="text-xl font-bold mb-3">Workflow Automation</h3>
+                    <p class="text-[#6B7280]">Connecting distinct software applications using Zapier and Make to eliminate repetitive manual entry.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-[#E5E7EB] shadow-sm hover:shadow-md transition">
+                    <div class="h-12 w-12 bg-[#EFF6FF] text-[#2563EB] rounded-xl flex items-center justify-center mb-6 text-2xl font-bold">📊</div>
+                    <h3 class="text-xl font-bold mb-3">Data Analytics</h3>
+                    <p class="text-[#6B7280]">Leveraging Python (Pandas) and Power BI to translate raw business metrics into actionable visual dashboards.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-[#E5E7EB] shadow-sm hover:shadow-md transition">
+                    <div class="h-12 w-12 bg-[#EFF6FF] text-[#2563EB] rounded-xl flex items-center justify-center mb-6 text-2xl font-bold">🗄️</div>
+                    <h3 class="text-xl font-bold mb-3">Custom CRM Design</h3>
+                    <p class="text-[#6B7280]">Architecting scalable, personalized databases in Airtable to manage leads, projects, and daily operations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEAD GATEWAY FORM -->
+        <section id="contact" class="max-w-3xl mx-auto px-6 py-20">
+            <div class="bg-white p-10 rounded-3xl border border-[#E5E7EB] shadow-lg">
+                <h2 class="text-3xl font-bold text-[#111827] mb-4">Client Gateway</h2>
+                <p class="text-[#6B7280] mb-8">Submit your operational bottleneck below. My automated system will log your inquiry and instantly send you a scheduling link.</p>
                 
-                <div class="hero-image">
-                    <!-- 2. YOUR HERO POSTER IMAGE -->
-                    <img src="{YOUR_HERO_IMAGE_PATH}" alt="Sumit Kannake">
-                </div>
-            </section>
+                <!-- The action attribute will later be replaced with your Make/Zapier Webhook URL -->
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-[#4B5563] mb-2">Full Name</label>
+                        <input type="text" placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-[#D1D5DB] focus:ring-2 focus:ring-[#2563EB] focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-[#4B5563] mb-2">Email Address</label>
+                        <input type="email" placeholder="john@company.com" class="w-full px-4 py-3 rounded-xl border border-[#D1D5DB] focus:ring-2 focus:ring-[#2563EB] focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-[#4B5563] mb-2">Business Problem</label>
+                        <textarea rows="4" placeholder="Briefly describe the manual task you want to automate..." class="w-full px-4 py-3 rounded-xl border border-[#D1D5DB] focus:ring-2 focus:ring-[#2563EB] focus:outline-none"></textarea>
+                    </div>
+                    <button type="button" class="w-full py-4 rounded-xl bg-[#2563EB] text-white font-bold text-lg hover:bg-[#1E40AF] transition">
+                        Initialize System Setup
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER & SOCIALS -->
+    <footer class="bg-[#111827] text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+            <div class="mb-4 md:mb-0">
+                <span class="text-xl font-bold">SUMIT KANNAKE</span>
+                <p class="text-[#9CA3AF] text-sm mt-1">© 2026 Process Automation Solutions.</p>
+            </div>
+            <div class="flex gap-6">
+                <!-- Replace # with your actual profile links -->
+                <a href="#" class="text-[#9CA3AF] hover:text-white transition">LinkedIn</a>
+                <a href="#" class="text-[#9CA3AF] hover:text-white transition">GitHub</a>
+                <a href="#" class="text-[#9CA3AF] hover:text-white transition">Instagram</a>
+            </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Section 2: Soft Sage Green Transition -->
-    <div data-color="#F2F7F4" class="color-section" id="about">
-        <div class="container">
-            <section>
-                <div class="section-header">
-                    <h2>Core Capabilities</h2>
-                    <p style="color: var(--text-light); font-size: 1.1rem;">Frameworks and technologies I use to drive business clarity.</p>
-                </div>
-                
-                <div class="grid" id="skills">
-                    <div class="card">
-                        <i class="fa-solid fa-chart-line"></i>
-                        <h3>Business Analytics</h3>
-                        <p>Data modeling, KPI benchmarking, and performance forecasting to support executive decision-making.</p>
-                    </div>
-                    <div class="card">
-                        <i class="fa-solid fa-database"></i>
-                        <h3>Data Strategy (SQL)</h3>
-                        <p>Relational database queries, data hygiene, schema optimization, and analytical dataset aggregation.</p>
-                    </div>
-                    <div class="card">
-                        <i class="fa-solid fa-desktop"></i>
-                        <h3>Data Visualization</h3>
-                        <p>Designing interactive, high-impact Power BI reports that turn complex numbers into clear visual insights.</p>
-                    </div>
-                    <div class="card">
-                        <i class="fa-solid fa-bolt"></i>
-                        <h3>Process Automation</h3>
-                        <p>Connecting business tools and streamlining operations workflows using modern automation pipelines.</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-
-    <!-- Section 3: Soft Lavender Transition -->
-    <div data-color="#F5F3FF" class="color-section" id="contact">
-        <div class="container">
-            <footer>
-                <h2 style="margin-bottom: 20px;">Let's Connect</h2>
-                <ul class="social-links">
-                    <li><a href="https://github.com/CodewithSoCia" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/sumit-kannake" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href="https://x.com/sumit_kannake" target="_blank" title="X"><i class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a href="https://www.instagram.com/_consciousbillionaire/?hl=en" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="mailto:sumitkannake09@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a></li>
-                </ul>
-                <p class="footer-text">&copy; 2026 Sumit Kannake. Business Analytics & Operations.<br>Built with purpose.</p>
-            </footer>
-        </div>
-    </div>
-
-    <!-- Interactive Scripts -->
-    <script>
-        const glow = document.getElementById('cursor-glow');
-        window.addEventListener('mousemove', (e) => {
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
-        });
-
-        const sections = document.querySelectorAll('.color-section');
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.35
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const newColor = entry.target.getAttribute('data-color');
-                    document.body.style.backgroundColor = newColor;
-                }
-            });
-        }, observerOptions);
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
 </body>
 </html>
