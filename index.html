@@ -113,21 +113,22 @@
                 <!-- The action attribute will later be replaced with your Make/Zapier Webhook URL -->
                 <form action="https://hook.eu2.make.com/d9jo9rg9oih1f9i3zif6vvlfvenjvr0w" method="POST" class="space-y-6">
                     <div>
-                        <label class="block text-sm font-medium text-[#4B5563] mb-2">Full Name</label>
-                        <input type="text" placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-[#D1D5DB] focus:ring-2 focus:ring-[#2563EB] focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-[#4B5563] mb-2">Email Address</label>
-                        <input type="email" placeholder="john@company.com" class="w-full px-4 py-3 rounded-xl border border-[#D1D5DB] focus:ring-2 focus:ring-[#2563EB] focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-[#4B5563] mb-2">Business Problem</label>
-                        <textarea rows="4" placeholder="Briefly describe the manual task you want to automate..." class="w-full px-4 py-3 rounded-xl border border-[#D1D5DB] focus:ring-2 focus:ring-[#2563EB] focus:outline-none"></textarea>
-                    </div>
-                    <button type="button" class="w-full py-4 rounded-xl bg-[#2563EB] text-white font-bold text-lg hover:bg-[#1E40AF] transition">
-                        Initialize System Setup
-                    </button>
-                </form>
+        <label class="block text-sm font-medium text-[#4B5563] mb-2">Full Name</label>
+        <input type="text" name="name" placeholder="John Doe" required class="w-full px-4 py-3 rounded-xl border border-[#D1D5DB] focus:ring-2 focus:ring-[#2563EB] focus:outline-none">
+    </div>
+    <div>
+        <label class="block text-sm font-medium text-[#4B5563] mb-2">Email Address</label>
+        <input type="email" name="email" placeholder="john@company.com" required class="w-full px-4 py-3 rounded-xl border border-[#D1D5DB] focus:ring-2 focus:ring-[#2563EB] focus:outline-none">
+    </div>
+    <div>
+        <label class="block text-sm font-medium text-[#4B5563] mb-2">Business Problem</label>
+        <textarea name="message" rows="4" placeholder="Briefly describe the manual task you want to automate..." required class="w-full px-4 py-3 rounded-xl border border-[#D1D5DB] focus:ring-2 focus:ring-[#2563EB] focus:outline-none"></textarea>
+    </div>
+    <!-- CHANGED FROM <button type="button"> TO <button type="submit"> -->
+    <button type="submit" class="w-full py-4 rounded-xl bg-[#2563EB] text-white font-bold text-lg hover:bg-[#1E40AF] transition">
+        Initialize System Setup
+    </button>
+</form>
             </div>
         </section>
 
