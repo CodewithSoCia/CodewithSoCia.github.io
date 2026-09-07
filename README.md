@@ -21,6 +21,23 @@ This project implements an end-to-end operational architecture that resolves the
 ---
 
 ## 2. System Architecture
+```
+[ Visitor / Client ]
+         │
+         ├── Option A: Manual Input (Name, Email, Problem)
+         └── Option B: "Continue with Google" (OAuth 2.0 JWT Decoded)
+         │
+         ▼
+[ Asynchronous AJAX Payload (JSON) ]
+         │
+         ▼
+[ Make.com Orchestrator Webhook ]
+         │
+         ├─────────────────────────────┐
+         ▼                             ▼
+[ Airtable Operations CRM ]    [ Gmail API Dispatcher ]
+(Structured Record Creation)   (Dynamic Transactional HTML)
+```
 ## 3. Implementation Details & Visual Proof
 
 ### A. Client Intake Gateway & Google Identity Services (OAuth 2.0)
